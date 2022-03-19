@@ -9,9 +9,9 @@ pool:
 stages:
 - stage: Build
   jobs:
-  - job: FirstJob
+  - job: variableJOB
     steps:
-    - bash: echo Build FirstJob
+    - bash: echo  FirstJob varibale value is $(myfirstplvar)
   - job: SecondJob
     steps:
     - bash: echo Build SecondJob
