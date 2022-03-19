@@ -1,0 +1,38 @@
+trigger:
+- master
+
+pool:
+  vmImage: 'ubuntu-latest'
+
+# Pipelines > Stages > Jobs > Tasks(Steps)
+
+
+stages:
+- stage: Build
+  jobs:
+  - job: FirstJob
+    steps:
+    - bash: echo Build FirstJob
+  - job: SecondJob
+    steps:
+    - bash: echo Build SecondJob
+- stage: Dev
+  dependsOn: Build
+  jobs:
+  - job: DevDeployJob
+    steps:
+    - bash: echo DeployJob
+- stage: QA
+  dependsOn: Build
+  jobs:
+  - job: QADeployJob
+    steps:
+    - bash: echo QADeployJob
+- stage: Prod
+  dependsOn: 
+  - Dev
+  - QA
+  jobs:
+  - job: ProdDeployJob
+    steps:
+    - bash: echo ProdDeployJob
