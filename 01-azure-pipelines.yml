@@ -1,0 +1,37 @@
+
+trigger:
+- master
+
+pool:
+  vmImage: ubuntu-latest
+
+stages:
+- stage: stage1
+  jobs:
+  - job: job1
+    steps:
+    - script: echo Hello, world from job1!
+      displayName: 'Running a one-line script'
+    - script: |
+        echo building yml script.
+        echo See https://aka.ms/yaml
+      displayName: 'Running a multi-line script'
+
+  - job: job2
+    steps:
+    - script: echo Hello, world from job2!
+      displayName: 'Running a one-line script'
+    - script: |
+        echo building yml script.
+        echo See https://aka.ms/yaml
+      displayName: 'Running a multi-line script'
+ 
+  - job: job3
+    steps:
+    - script: echo Hello, world from job3!
+      displayName: 'Running a one-line script'
+    - script: |
+        echo building yml script.
+        echo See https://aka.ms/yaml
+      displayName: 'Running a multi-line script'
+ 
