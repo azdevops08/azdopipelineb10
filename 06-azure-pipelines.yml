@@ -1,0 +1,17 @@
+
+trigger:
+- master
+
+pool:
+  vmImage: ubuntu-latest
+
+stages:
+- stage: Build
+  jobs:
+  - job: job1
+    steps:
+    - bash: echo $(Agent.BuildDirectory)
+    - bash: echo $(Agent.Name)
+    - bash: echo $(Agent.OS)
+    - bash: echo $(Build.ArtifactStagingDirectory)
+    - bash: echo $(System.StageName)
